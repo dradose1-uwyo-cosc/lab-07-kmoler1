@@ -19,11 +19,11 @@
 def user_fact():
     interger=""
     while(True):
-        interger=input("Enter a number greater than 0: ")
+        interger=input("Enter a Factorial: ")
         if(interger.isdigit()):
             return int(interger)
         else:
-            print(f"Please enter a number")
+            print(f"Please enter a positve number.")
         print("*"*75)
 
 def solve_fact(num):
@@ -91,5 +91,56 @@ print("*"*75)
     # So, it should function the same for `5 + 6` as `5+6`
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
+
+def calc(v1,oper,v2):
+    if(oper=="+"):
+        return(v1+v2)
+    elif(oper=="-"):
+        return(v1-v2)
+    elif(oper=="/"):
+        if(v2!=0):
+            return(v1/v2)
+        else:
+            return("You can not divide by zero.")
+    elif(oper=="*"):
+        return(v1*v2)
+    elif(oper=="%"):
+        return(v1%v2)
+    else:
+        return("That is not a proper equation.")
+
+
+def user_calc():
+    val1=""
+    val2=""
+    oper=""
+    ans=""
+    move=False
+    print("*"*32)
+    while(ans!="exit"):
+        ans=input("Enter a equation(1+2, 4 / 12, etc.) using +,-,/,*, or remainder or exit: ")
+        if(ans.lower()=="exit"):
+            return()
+        else:
+            ans=ans.replace(" ","")
+            ans=str(ans)
+            ans=list(ans)
+            for char in ans:
+                if(char.isdigit()==True and move==False):
+                    val1+=char
+                elif(char.isdigit()==True and move==True):
+                    val2+=char
+                else:
+                    oper=char
+                    move=True
+            val1=int(val1)
+            val2=int(val2)
+        print(calc(val1,oper,val2))
+        print("*"*32)
+        val1=""
+        val2=""
+        oper=""
+
+user_calc()
 
         
