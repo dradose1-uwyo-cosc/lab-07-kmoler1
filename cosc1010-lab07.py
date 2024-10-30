@@ -1,12 +1,11 @@
-# Your Name Here
+# Kaleb Moler
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# 10/30/24
+# Lab 7
+# Lab Section: 15
 # Sources, people worked with, help given to: 
-# your
-# comments
-# here
+# Jhett Carr, Jay Trujio
+
 
 
 # Prompt the user for an upper bound 
@@ -17,7 +16,28 @@
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
 
-factorial = 1
+def user_fact():
+    interger=""
+    while(True):
+        interger=input("Enter a number greater than 0: ")
+        if(interger.isdigit()):
+            return int(interger)
+        else:
+            print(f"Please enter a number")
+        print("*"*75)
+
+def solve_fact(num):
+    upper=num
+    fact=1
+    if(upper>0):
+        while(upper>0):
+            fact *= upper
+            upper -=1
+    print("*"*32)
+    return(fact)
+
+
+factorial=solve_fact(user_fact())
 
 print(f"The result of the factorial based on the given bound is {factorial}")
 
@@ -37,7 +57,20 @@ print("*"*75)
 # All this together means you will have an intensive while loop that includes multiple if statements, likely with some nesting 
 # The sum should start at 0 
 
-num_sum = 0 
+def user_adder():
+    adder=0
+    ans=""
+    while(ans!="exit"):
+        ans=input("Enter a number to add or exit: ")
+        if(ans.isalpha()==False):
+            adder += int(ans)
+        else:
+            ans=ans.lower()
+    print("*"*32)
+    return(adder)
+
+
+num_sum = user_adder() 
 
 print(f"Your final sum is {num_sum}")
 
